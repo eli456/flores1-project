@@ -60,4 +60,3 @@ class Mutation(graphene.ObjectType) :
     create_flower = CreateFlowers.Field()
 
 schema = graphene.Schema(query=Query, mutation=Mutation)
-        

@@ -3,7 +3,6 @@ from graphene_django import DjangoObjectType
 
 from .models import Flower
 
-
 class FlowerType(DjangoObjectType) :
     class Meta :
         model = Flower

@@ -75,6 +75,5 @@ class FlowersTestCase(GraphQLTestCase) :
             content['data']
         )
         
-    
 
 # Create your tests here.

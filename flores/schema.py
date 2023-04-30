@@ -8,9 +8,5 @@ class Query(flowers.schema.Query, graphene.ObjectType) :
 class Mutation(flowers.schema.Mutation, graphene.ObjectType):
     pass
 
-mutation
-schema = graphene.Schema(query=Query, mutation=Mutation)
-
 
 schema = graphene.Schema(query=Query, mutation=Mutation)
- develop

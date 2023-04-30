@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
-    'flowers',
-    'corsheaders',
+    'links',
 ]
 
 MIDDLEWARE = [
@@ -50,19 +49,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:4200',
-    'http://127.0.0.1:4200',
-]
-
-ROOT_URLCONF = 'flores.urls'
+ROOT_URLCONF = 'hackernews.urls'
 
 TEMPLATES = [
     {
@@ -80,7 +69,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'flores.wsgi.application'
+WSGI_APPLICATION = 'hackernews.wsgi.application'
+
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -88,11 +78,11 @@ WSGI_APPLICATION = 'flores.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'flores',
+        'NAME': 'hackernews_develop',
         'USER': 'postgres',
         'PASSWORD': 'IrvingConde123',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '5433',
     }
 }
 
@@ -127,6 +117,8 @@ USE_I18N = True
 
 USE_L10N = True
 
+USE_TZ = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -134,5 +126,5 @@ USE_L10N = True
 STATIC_URL = '/static/'
 
 GRAPHENE = {
-    'SCHEMA': 'flores.schema.schema',
+    'SCHEMA': 'hackernews.schema.schema',
 }

@@ -6,4 +6,4 @@ WORKDIR /flores
 COPY requirements.txt /flores/
 RUN pip install -r requirements.txt
 COPY . /flores/
-CMD sudo python manage.py runserver --settings=settings.production 0.0.0.0:8080
+CMD python manage.py runserver --settings=settings.production 0.0.0.0:8080

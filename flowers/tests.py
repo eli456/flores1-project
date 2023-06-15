@@ -53,27 +53,28 @@ class FlowersTestCase(GraphQLTestCase) :
         response = self.query(
             CREATE_FLOWER_MUTATION,
             variables={
-                'nombreflor': 'Rosalia Uwu',
+                'nombreflor': 'Rosa',
                 'tipo': 'Rosa', 
                 'color': 'Rojo', 
                 'cantidad': 12.0, 
-                'fecha': '2002-04-24', 
-                'ocasion': "Nomas", 
+                'fecha': '2023-08-05', 
+                'ocasion': "Xv años", 
                 'precio': 5.0, 
-                'formadepago': 'Yo', 
+                'formadepago': 'tarjeta de débito', 
                 'existencias': 32.0, 
-                'direccion': 'En mi casa'}
+                'direccion': 'Hacienda cielo tisú'}
         )
         content = json.loads(response.content)
         self.assertResponseNoErrors(response)
         self.assertDictEqual(
             {
                 "createFlower": {
-                    "nombreflor": "Rosalia Uwu"
+                    "nombreflor": "Rosa"
                 }
             }, 
             content['data']
         )
         
+    
 
 # Create your tests here.

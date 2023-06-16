@@ -9,4 +9,4 @@ dev:
   eli456:
     command: bash
     sync:
-    - .:/flores  # cambiar por su proyecto
+    - .:/flowers  # cambiar por su proyecto

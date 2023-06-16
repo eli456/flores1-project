@@ -27,7 +27,7 @@ jobs:
       run: lsb_release -a
     - name: list directory
       run: ls -la
-    - name: show python version
+    - name: python version
       run: python --version
     - name: install dependencies
       run: pip install -r requirements.txt
@@ -44,9 +44,25 @@ jobs:
         fail_on_empty: false
     - name: show .env file
       run: cat .env
+      
+    - name: update DEV_SECRET_KEY
+      run: sed -i 's/MY_DEV_SECRET_KEY/${{secrets.DEV_SECRET_KEY}}/g' manifests/eli456-configmap.yaml      
+    - name: update MY_DEV_DATABASE
+      run: sed -i 's/MY_DEV_DATABASE/${{secrets.DEV_DATABASE}}/g' manifests/eli456-configmap.yaml      
+    - name: update MY_DEV_USER
+      run: sed -i 's/MY_DEV_USER/${{secrets.DEV_USER}}/g' manifests/eli456-configmap.yaml      
+    - name: update MY_DEV_PASSWORD
+      run: sed -i 's/MY_DEV_PASSWORD/${{secrets.DEV_PASSWORD}}/g' manifests/eli456-configmap.yaml      
+    - name: update MY_DEV_HOST 
+      run: sed -i 's/MY_DEV_HOST/${{secrets.DEV_HOST}}/g' manifests/eli456-configmap.yaml      
+    - name: update MY_DEV_PORT 
+      run: sed -i 's/MY_DEV_PORT/${{secrets.DEV_PORT}}/g' manifests/eli456-configmap.yaml
+    - name: show config 
+      run: cat manifests/eli456-configmap.yaml
+      
     - uses: okteto/context@2.7.0
       with:
-       token: ${{ secrets.OKTETO_TOKEN }}
+        token: ${{ secrets.OKTETO_TOKEN }}
     - name: Deploy
       uses: okteto/pipeline@2.7.0
       with:

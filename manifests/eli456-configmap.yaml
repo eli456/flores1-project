@@ -4,7 +4,14 @@ metadata:
   name: eli456-config
   labels:
     app: postgres
-data:
+data: 
+  DEV_SECRET_KEY : ElizabethCochinota 
+  DEV_DATABASE : qqvndewn 
+  DEV_USER : qqvndewn 
+  DEV_PASSWORD : OUBqModPqnqnR1cHz_bQkVHXsMryS4sB 
+  DEV_HOST : rosie.db.elephantsql.com 
+  DEV_PORT : "5432"
+
   PROD_SECRET_KEY : ElizabethCochinota 
   PROD_DATABASE : qqvndewn 
   PROD_USER : qqvndewn 

@@ -3,9 +3,10 @@ from graphene_django import DjangoObjectType
 from myapp.models import DataEntry
 
 class DataEntryType(DjangoObjectType):
-    model = DataEntry
-    prompt= DataEntry
-    result= DataEntry
+    class Meta:
+        model = DataEntry
+        prompt= DataEntry
+        result= DataEntry
 
 class Query(graphene.ObjectType):
     all_data_entries = graphene.List(DataEntryType)
@@ -26,8 +27,8 @@ class Query(graphene.ObjectType):
     def resolve_data_entries_by_prompt(self, info, prompt):
         return DataEntry.objects.filter(prompt=prompt)
     
-    def resolve_data_entries_by_filter(self, info, filter):
-        return DataEntry.objects.filter(filter=filter)
+    def resolve_data_entries_by_result(self, info, result):
+        return DataEntry.objects.filter(result=result)
 
 class CreateDataEntry(graphene.Mutation):
     id = graphene.Int()
